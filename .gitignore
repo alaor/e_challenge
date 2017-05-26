@@ -1,4 +1,6 @@
 .gitignore~
-
+.idea/
+.settings/
+eteg-challenge.iml
 target/
 
