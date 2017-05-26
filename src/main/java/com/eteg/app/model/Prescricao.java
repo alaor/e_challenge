@@ -24,7 +24,10 @@ public class Prescricao {
     @Column(name = "data")
     private Date data;
 
-    @Column(name = "id_paciente")
+    @ManyToOne
+    @JoinColumns({
+            @JoinColumn(name = "id_paciente", referencedColumnName = "id")
+    })
     private Paciente paciente;
 
     @OneToMany(mappedBy = "medicamento", orphanRemoval = true)
