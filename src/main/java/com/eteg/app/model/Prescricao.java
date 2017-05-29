@@ -19,7 +19,7 @@ public class Prescricao {
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy= GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;
 
     @Column(name = "data")
     private Date data;
@@ -34,4 +34,36 @@ public class Prescricao {
     @NotFound(action = NotFoundAction.IGNORE)
     @Cascade({CascadeType.ALL})
     private List<PrescricaoMedicamento> medicamentos;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Date getData() {
+        return data;
+    }
+
+    public void setData(Date data) {
+        this.data = data;
+    }
+
+    public Paciente getPaciente() {
+        return paciente;
+    }
+
+    public void setPaciente(Paciente paciente) {
+        this.paciente = paciente;
+    }
+
+    public List<PrescricaoMedicamento> getMedicamentos() {
+        return medicamentos;
+    }
+
+    public void setMedicamentos(List<PrescricaoMedicamento> medicamentos) {
+        this.medicamentos = medicamentos;
+    }
 }
