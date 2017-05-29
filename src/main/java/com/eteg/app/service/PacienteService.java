@@ -9,14 +9,12 @@ import java.util.List;
  */
 public interface PacienteService {
 
-    Paciente findById(Integer id);
+    Paciente findById(Long id);
 
     List<Paciente> findAllPersons();
 
     void save(Paciente paciente);
 
-    void update(Paciente paciente);
-
-    void delete(Integer id);
+    void delete(Long id);
 
 }

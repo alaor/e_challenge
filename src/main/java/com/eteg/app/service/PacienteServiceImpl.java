@@ -12,34 +12,29 @@ import java.util.List;
  * Created by alaor on 26/05/17.
  */
 @Service("pacienteService")
-@Transactional
 public class PacienteServiceImpl implements PacienteService {
 
     @Autowired
     private PacienteDao pacienteDao;
 
     @Override
-    public Paciente findById(Integer id) {
-        return pacienteDao.findById(id);
+    public Paciente findById(Long id) {
+        return pacienteDao.findOne(id);
     }
 
     @Override
     public List<Paciente> findAllPersons() {
-        return pacienteDao.findAllPacientes();
+        return pacienteDao.findAll();
     }
 
     @Override
+    @Transactional
     public void save(Paciente paciente) {
         pacienteDao.save(paciente);
     }
 
     @Override
-    public void update(Paciente paciente) {
-        pacienteDao.updatePaciente(paciente);
-    }
-
-    @Override
-    public void delete(Integer id) {
-        pacienteDao.deleteById(id);
+    public void delete(Long id) {
+        pacienteDao.delete(id);
     }
 }
