@@ -11,7 +11,7 @@ public interface PacienteService {
 
     Paciente findById(Long id);
 
-    List<Paciente> findAllPersons();
+    List<Paciente> findAllPacientes();
 
     void save(Paciente paciente);
 
