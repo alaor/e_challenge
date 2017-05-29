@@ -1,5 +1,7 @@
 package com.eteg.app.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -22,7 +24,8 @@ public class Paciente {
     @Column(name = "cpf")
     private String cpf;
 
-    @Column(name = "dataNascimento")
+    @Column(name = "data_nascimento")
+    @JsonFormat(pattern="dd/MM/yyyy")
     private Date dataNascimento;
 
     public Long getId() {
