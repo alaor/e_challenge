@@ -12,7 +12,7 @@ public class PrescricaoMedicamento {
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy= GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;
 
     @Column(name = "frequencia")
     private Integer frequencia;
@@ -26,11 +26,11 @@ public class PrescricaoMedicamento {
     })
     private Medicamento medicamento;
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
