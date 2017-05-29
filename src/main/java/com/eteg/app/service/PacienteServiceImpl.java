@@ -23,7 +23,7 @@ public class PacienteServiceImpl implements PacienteService {
     }
 
     @Override
-    public List<Paciente> findAllPersons() {
+    public List<Paciente> findAllPacientes() {
         return pacienteDao.findAll();
     }
 
