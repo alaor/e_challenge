@@ -20,7 +20,7 @@ public class PacienteController {
 
     @RequestMapping(method = RequestMethod.GET)
     public ResponseEntity getPacientes() {
-        return new ResponseEntity(pacienteService.findAllPersons(), HttpStatus.OK);
+        return new ResponseEntity(pacienteService.findAllPacientes(), HttpStatus.OK);
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
