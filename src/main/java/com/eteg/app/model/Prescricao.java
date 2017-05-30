@@ -1,5 +1,7 @@
 package com.eteg.app.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import org.hibernate.annotations.*;
 import org.hibernate.annotations.CascadeType;
 
@@ -22,17 +24,17 @@ public class Prescricao {
     private Long id;
 
     @Column(name = "data")
+    @JsonFormat(pattern="dd/MM/yyyy")
     private Date data;
 
     @ManyToOne
-    @JoinColumns({
-            @JoinColumn(name = "id_paciente", referencedColumnName = "id")
-    })
+    @JoinColumn(name = "id_paciente")
     private Paciente paciente;
 
-    @OneToMany(mappedBy = "medicamento", orphanRemoval = true)
+    @OneToMany(mappedBy = "medicamento", fetch = FetchType.EAGER, orphanRemoval = true)
     @NotFound(action = NotFoundAction.IGNORE)
     @Cascade({CascadeType.ALL})
+    @JsonBackReference
     private List<PrescricaoMedicamento> medicamentos;
 
     public Long getId() {

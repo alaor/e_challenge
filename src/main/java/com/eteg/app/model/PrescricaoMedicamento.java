@@ -1,5 +1,7 @@
 package com.eteg.app.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 
 /**
@@ -21,10 +23,13 @@ public class PrescricaoMedicamento {
     private String dose;
 
     @ManyToOne
-    @JoinColumns({
-        @JoinColumn(name = "id_medicamento", referencedColumnName = "id")
-    })
+    @JoinColumn(name = "id_medicamento")
     private Medicamento medicamento;
+
+    @ManyToOne
+    @JoinColumn(name = "id_prescricao")
+    @JsonManagedReference
+    private Prescricao prescricao;
 
     public Long getId() {
         return id;
@@ -56,6 +61,14 @@ public class PrescricaoMedicamento {
 
     public void setMedicamento(Medicamento medicamento) {
         this.medicamento = medicamento;
+    }
+
+    public Prescricao getPrescricao() {
+        return prescricao;
+    }
+
+    public void setPrescricao(Prescricao prescricao) {
+        this.prescricao = prescricao;
     }
 }
 

@@ -1,8 +1,8 @@
 package com.eteg.app.controller;
 
 import com.eteg.app.model.Medicamento;
-import com.eteg.app.model.Paciente;
-import com.eteg.app.service.MedicamentoService;
+import com.eteg.app.model.PrescricaoMedicamento;
+import com.eteg.app.service.PrescricaoMedicamentoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -16,33 +16,33 @@ import org.springframework.web.bind.annotation.RestController;
  * Created by alaor on 29/05/17.
  */
 @RestController
-@RequestMapping("/medicamento")
-public class MedicamentoController {
+@RequestMapping("/prescricaoMedicamento")
+public class PrescricaoMedicamentoController {
 
     @Autowired
-    private MedicamentoService medicamentoService;
+    private PrescricaoMedicamentoService prescricaoMedicamentoService;
 
     @RequestMapping(method = RequestMethod.GET)
-    public ResponseEntity getMedicamentos() {
-        return new ResponseEntity(medicamentoService.findAllMedicamentos(), HttpStatus.OK);
+    public ResponseEntity getPrescricaoMedicamentos() {
+        return new ResponseEntity(prescricaoMedicamentoService.findAllPrescricoesMedicamentos(), HttpStatus.OK);
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-    public ResponseEntity getMedicamentoById(@PathVariable Long id) {
-        Medicamento medicamento = medicamentoService.findById(id);
-        return new ResponseEntity(medicamento, HttpStatus.OK);
+    public ResponseEntity getPrescricaoMedicamentoById(@PathVariable Long id) {
+        PrescricaoMedicamento prescricaoMedicamento = prescricaoMedicamentoService.findById(id);
+        return new ResponseEntity(prescricaoMedicamento, HttpStatus.OK);
     }
 
     @RequestMapping(method = RequestMethod.POST,
             consumes = {MediaType.APPLICATION_FORM_URLENCODED_VALUE, MediaType.APPLICATION_JSON_UTF8_VALUE, MediaType.APPLICATION_JSON_VALUE})
-    public ResponseEntity save(Medicamento medicamento) {
-        medicamentoService.save(medicamento);
-        return new ResponseEntity(medicamento, HttpStatus.OK);
+    public ResponseEntity save(PrescricaoMedicamento prescricaoMedicamento) {
+        prescricaoMedicamentoService.save(prescricaoMedicamento);
+        return new ResponseEntity(prescricaoMedicamento, HttpStatus.OK);
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     public ResponseEntity delete(@PathVariable Long id) {
-        medicamentoService.delete(id);
+        prescricaoMedicamentoService.delete(id);
         return new ResponseEntity(id, HttpStatus.OK);
     }
 
