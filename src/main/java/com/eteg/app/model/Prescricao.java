@@ -28,10 +28,10 @@ public class Prescricao {
     private Date data;
 
     @ManyToOne
-    @JoinColumn(name = "id_paciente")
+    @JoinColumn(name = "paciente_id")
     private Paciente paciente;
 
-    @OneToMany(mappedBy = "medicamento", fetch = FetchType.EAGER, orphanRemoval = true)
+    @OneToMany(mappedBy = "prescricao", fetch = FetchType.EAGER, orphanRemoval = true)
     @NotFound(action = NotFoundAction.IGNORE)
     @Cascade({CascadeType.ALL})
     @JsonBackReference

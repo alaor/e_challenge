@@ -23,11 +23,11 @@ public class PrescricaoMedicamento {
     private String dose;
 
     @ManyToOne
-    @JoinColumn(name = "id_medicamento")
+    @JoinColumn(name = "medicamento_id")
     private Medicamento medicamento;
 
     @ManyToOne
-    @JoinColumn(name = "id_prescricao")
+    @JoinColumn(name = "prescricao_id")
     @JsonManagedReference
     private Prescricao prescricao;
 

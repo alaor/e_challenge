@@ -32,6 +32,12 @@ public class PrescricaoController {
         return new ResponseEntity(prescricao, HttpStatus.OK);
     }
 
+    @RequestMapping(value = "/{id}/medicamentos", method = RequestMethod.GET)
+    public ResponseEntity getMedicamentosPrescricao(@PathVariable Long id) {
+        Prescricao p = prescricaoService.findById(id);
+        return new ResponseEntity(p.getMedicamentos(), HttpStatus.OK);
+    }
+
     @RequestMapping(method = RequestMethod.POST,
             consumes = {MediaType.APPLICATION_FORM_URLENCODED_VALUE, MediaType.APPLICATION_JSON_UTF8_VALUE, MediaType.APPLICATION_JSON_VALUE})
     public ResponseEntity save(Prescricao prescricao) {
