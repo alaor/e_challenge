@@ -17,7 +17,7 @@ public class PrescricaoMedicamento {
     private Long id;
 
     @Column(name = "frequencia")
-    private Integer frequencia;
+    private String frequencia;
 
     @Column(name = "dose")
     private String dose;
@@ -39,11 +39,11 @@ public class PrescricaoMedicamento {
         this.id = id;
     }
 
-    public Integer getFrequencia() {
+    public String getFrequencia() {
         return frequencia;
     }
 
-    public void setFrequencia(Integer frequencia) {
+    public void setFrequencia(String frequencia) {
         this.frequencia = frequencia;
     }
 
